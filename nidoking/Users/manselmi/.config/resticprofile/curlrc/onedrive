@@ -1,0 +1,6 @@
+fail
+max-time 60
+output /dev/null
+retry 3
+silent
+url https://hc-ping.com/{{ op://6tjftq4rhqxyde5qe4kasnpmtq/3otjnpct43hdsr4attninc5k5m/bs67lrpyuqbszjtveltxe2pmba/uuid }}

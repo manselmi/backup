@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vim: set ft=xml : -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/Users/manselmi/.prefix/bin:/Users/manselmi/.prefix/sw/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<key>TZ</key>
+		<string>UTC</string>
+	</dict>
+	<key>Label</key>
+	<string>com.manselmi.resticprofile.onedrive.backup</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/zsh</string>
+		<string>-fc</string>
+		<string>/usr/bin/truncate -s 0 -- /Users/manselmi/.config/resticprofile/log/onedrive/backup.log ; exec -- /usr/local/bin/fdautil exec /Users/manselmi/.prefix/bin/exec-resticprofile --log /Users/manselmi/.config/resticprofile/log/onedrive/backup.log -- onedrive.backup</string>
+	</array>
+</dict>
+</plist>

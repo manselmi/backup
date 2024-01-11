@@ -1,0 +1,62 @@
+# vim: set ft=diff :
+
+
+# File segments
+- *.cyberducksegment
+- *.part
+- *.partial
+
+# Linux
+#   https://github.com/github/gitignore/blob/main/Global/Linux.gitignore
+- *~
+- .directory
+- .fuse_hidden*
+- .nfs*
+- .Trash
+- .Trash-*
+
+# macOS
+#   https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
+- .apdisk
+- .AppleDB
+- .AppleDesktop
+- .AppleDouble
+- .com.apple.timemachine.donotpresent
+- .DocumentRevisions-V100
+- .DS_Store
+- .fseventsd
+- .localized
+- .LSOverride
+- .Spotlight-V100
+- .TemporaryItems
+- .Trashes
+- .VolumeIcon.icns
+- ._*
+- Icon␍
+- Network Trash Folder
+- Temporary Items
+
+# Syncthing
+#   https://github.com/github/gitignore/blob/main/Global/Syncthing.gitignore
+- .stfolder
+- .stignore
+- .stversions
+
+# Vim
+#   https://github.com/github/gitignore/blob/main/Global/Vim.gitignore
+- *.swp
+- *~
+- .netrwhist
+- .viminfo
+- Session.vim
+- Sessionx.vim
+- [._]*.un~
+
+# Windows
+#   https://github.com/github/gitignore/blob/main/Global/Windows.gitignore
+- \$RECYCLE.BIN
+- ehthumbs.db
+- ehthumbs_vista.db
+- Thumbs.db
+- Thumbs.db:encryptable
+- [Dd]esktop.ini

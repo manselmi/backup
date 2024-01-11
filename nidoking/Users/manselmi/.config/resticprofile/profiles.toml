@@ -1,0 +1,170 @@
+#:schema https://creativeprojects.github.io/resticprofile/jsonschema/config-1.json
+# vim: set ft=toml :
+
+
+{{ define "healthcheck_failure" }}
+'''
+op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
+  | sed -e '\|^url[[:blank:]:=]|s|$|/fail|' \
+  | {
+      DATA="$(mktemp)"
+      env -- LC_ALL=POSIX tail -c 100000 -- '{{ .ConfigDir }}/log/{{ .Profile.Name }}/backup.log' >> "${DATA}"
+      curl -qK - -H 'content-type: text/plain' --data-binary "@${DATA}"
+      rm -f -- "${DATA}"
+    }
+'''
+{{ end }}
+
+{{ define "healthcheck_start" }}
+'''
+op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
+  | sed -e '\|^url[[:blank:]:=]|s|$|/start|' \
+  | curl -qK -
+'''
+{{ end }}
+
+{{ define "healthcheck_success" }}
+'''
+op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
+  | {
+      DATA="$(mktemp)"
+      env -- LC_ALL=POSIX tail -c 100000 -- '{{ .ConfigDir }}/log/{{ .Profile.Name }}/backup.log' >> "${DATA}"
+      curl -qK - -H 'content-type: text/plain' --data-binary "@${DATA}"
+      rm -f -- "${DATA}"
+    }
+'''
+{{ end }}
+
+
+{{ define "repository_manselmi" }}
+lock = '/tmp/resticprofile/manselmi.lock'
+password-command = 'op read --no-newline -- op://6tjftq4rhqxyde5qe4kasnpmtq/gqrbqymbvwn7ppbugzbu47fh54/password'
+repository = 'rclone:restic-manselmi:'
+{{ end }}
+
+
+version = '1'
+
+
+[global]
+prevent-sleep = true
+restic-lock-retry-after = '1m'
+restic-stale-lock-age = '1h'
+
+
+[base]
+force-inactive-lock = true
+group-by = 'host,tags'
+human-readable = true
+keep-within-daily = '7d'
+keep-within-weekly = '1m'
+keep-within-monthly = '1y'
+keep-within-yearly = '100y'
+long = true
+pack-size = 128  # MiB
+path = false
+status-file = '''{{ .ConfigDir }}/status/{{ .Profile.Name }}.json'''
+
+[base.backup]
+check-after = true
+exclude-file = [
+  '''{{ .ConfigDir }}/exclude/base.txt''',
+  '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}.txt''',
+]
+read-concurrency = 8
+run-after = [
+  {{ template "healthcheck_success" . }},
+]
+run-after-fail = [
+  {{ template "healthcheck_failure" . }},
+]
+run-before = [
+  {{ template "healthcheck_start" . }},
+]
+verbose = true
+
+[base.cache]
+cleanup = true
+max-age = 30
+
+[base.diff]
+metadata = true
+
+[base.env]
+RCLONE_PASSWORD_COMMAND = 'op read --no-newline -- op://6tjftq4rhqxyde5qe4kasnpmtq/3yexkwejyeqny43jnrscuyyfda/password'
+TZ = 'UTC'
+
+[base.forget]
+prune = true
+tag = true
+
+[base.prune]
+max-unused = '0'
+verbose = true
+
+[base.repair-snapshots]
+forget = true
+tag = true
+
+[base.retention]
+after-backup = true
+before-backup = false
+prune = true
+tag = true
+
+
+[rclone-mount-src]
+base-dir = '''/opt/rclone/mnt/{{ .Profile.Name }}'''
+inherit = 'base'
+
+[rclone-mount-src.backup]
+read-concurrency = 2
+run-before = [
+  {{ template "healthcheck_start" . }},
+  '''
+  mount \
+    | grep -Fq -- 'fuse-t:/{{ .Profile.Name }} on /opt/rclone/mnt/{{ .Profile.Name }}'
+  ''',
+]
+source = [
+  '.',
+]
+tag = [
+  '''mount-dir=/opt/rclone/mnt/{{ .Profile.Name }}''',
+]
+
+
+[manselmi]
+inherit = 'base'
+{{ template "repository_manselmi" . }}
+
+
+[nidoking]
+base-dir = '''{{ .Env.HOME }}'''
+host = 'Nidoking'
+inherit = 'base'
+{{ template "repository_manselmi" . }}
+
+[nidoking.backup]
+source = [
+  'Desktop',
+  'Documents',
+  'Downloads',
+  'Gaming',
+  'Movies',
+  'Music',
+  'Pictures',
+  'Watches',
+]
+
+
+[gdrive]
+host = 'Google Drive'
+inherit = 'rclone-mount-src'
+{{ template "repository_manselmi" . }}
+
+
+[onedrive]
+host = 'OneDrive'
+inherit = 'rclone-mount-src'
+{{ template "repository_manselmi" . }}

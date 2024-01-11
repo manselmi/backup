@@ -1,0 +1,11 @@
+#!/usr/bin/env -S -- zsh -f
+# vim: set ft=zsh :
+
+# Stop at any error, treat unset vars as errors and make pipelines exit with a non-zero exit code if
+# any command in the pipeline exits with a non-zero exit code.
+set -o ERR_EXIT
+set -o NO_UNSET
+set -o PIPE_FAIL
+
+
+exec -- env -- TZ=UTC exec-op-token rclone "${@}"
