@@ -298,6 +298,28 @@ restore, GUI and business process solutions using the rclone command line or API
 
 Rclone does the heavy lifting of communicating with cloud storage.
 
+### FUSE-T
+
+#### Project URL
+
+[FUSE-T](https://www.fuse-t.org/)
+
+#### Project description
+
+FUSE-T is a kext-less implementation of FUSE for macOS that uses NFS v4 local server instead of a
+kernel extension.
+
+The main motivation for this project is to replace [*macfuse*](https://osxfuse.github.io/) that
+implements its own kext to make fuse work. With each version of macOS it's getting harder and
+harder to load kernel extensions. Apple strongly discourages it and, for this reason, software
+distributions that include *macfuse* are very difficult to install.
+
+Additionally, the *macfuse* kext is unstable, may cause frequent system crashes and kernel lock-ups.
+Given those limitations many software publishers are unable to use *macfuse* anymore.
+
+FUSE-T doesn't make use of kernel extension, it implements its own userspace server that converts
+between FUSE protocol and NFS calls and let macOS mount NFS volume instead of a kernel filesystem.
+
 ### Healthchecks.io
 
 #### Project URL
