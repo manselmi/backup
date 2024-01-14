@@ -96,7 +96,7 @@ bkp
 mnt-gdrive
 
 # Start Google Drive backup and tail the backup log.
-bk gdrive
+bk-gdrive
 
 # Log current backup progress.
 bkp

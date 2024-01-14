@@ -77,7 +77,17 @@ mnt-gdrive() {
   _rclone-mount gdrive
 }
 
+# Start backup of rclone remote "gdrive" and tail the backup log.
+bk-gdrive() {
+  bk gdrive
+}
+
 # Mount rclone remote "onedrive" to /opt/rclone/mnt/onedrive/
 mnt-onedrive() {
   _rclone-mount onedrive
+}
+
+# Start backup of rclone remote "onedrive" and tail the backup log.
+bk-onedrive() {
+  bk onedrive
 }
