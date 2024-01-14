@@ -5,6 +5,7 @@ typeset -U path
 path=(
   "${HOME}/.prefix/bin"
   "${HOME}/.prefix/sw/homebrew/bin"
+  '/usr/local/bin'
   "${path[@]}"
 )
 export PATH
