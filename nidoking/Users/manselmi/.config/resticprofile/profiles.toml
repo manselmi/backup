@@ -2,7 +2,7 @@
 # vim: set ft=toml :
 
 
-{{ define "healthcheck_failure" }}
+{{ define "ping_healthcheck_failure" }}
 '''
 op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
   | sed -e '\|^url[[:blank:]:=]|s|$|/fail|' \
@@ -15,7 +15,7 @@ op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
 '''
 {{ end }}
 
-{{ define "healthcheck_start" }}
+{{ define "ping_healthcheck_start" }}
 '''
 op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
   | sed -e '\|^url[[:blank:]:=]|s|$|/start|' \
@@ -23,7 +23,7 @@ op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
 '''
 {{ end }}
 
-{{ define "healthcheck_success" }}
+{{ define "ping_healthcheck_success" }}
 '''
 op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
   | {
@@ -32,6 +32,15 @@ op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
       curl -qK - -H 'content-type: text/plain' --data-binary "@${DATA}"
       rm -f -- "${DATA}"
     }
+'''
+{{ end }}
+
+{{ define "print_versions" }}
+'''
+resticprofile version
+restic version
+rclone version
+pkgutil --pkgs='org\.fuse-t\..*' || printf '%s\n' 'fuse-t not found'
 '''
 {{ end }}
 
@@ -73,13 +82,14 @@ exclude-file = [
 ]
 read-concurrency = 8
 run-after = [
-  {{ template "healthcheck_success" . }},
+  {{ template "ping_healthcheck_success" . }},
 ]
 run-after-fail = [
-  {{ template "healthcheck_failure" . }},
+  {{ template "ping_healthcheck_failure" . }},
 ]
 run-before = [
-  {{ template "healthcheck_start" . }},
+  {{ template "ping_healthcheck_start" . }},
+  {{ template "print_versions" . }},
 ]
 verbose = true
 
@@ -120,7 +130,8 @@ inherit = 'base'
 [rclone-mount-src.backup]
 read-concurrency = 2
 run-before = [
-  {{ template "healthcheck_start" . }},
+  {{ template "ping_healthcheck_start" . }},
+  {{ template "print_versions" . }},
   '''
   mount \
     | grep -Fq -- 'fuse-t:/{{ .Profile.Name }} on /opt/rclone/mnt/{{ .Profile.Name }}'
