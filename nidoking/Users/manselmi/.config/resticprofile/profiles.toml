@@ -128,6 +128,7 @@ base-dir = '''/opt/rclone/mnt/{{ .Profile.Name }}'''
 inherit = 'base'
 
 [rclone-mount-src.backup]
+ignore-inode = true
 read-concurrency = 2
 run-before = [
   {{ template "ping_healthcheck_start" . }},
