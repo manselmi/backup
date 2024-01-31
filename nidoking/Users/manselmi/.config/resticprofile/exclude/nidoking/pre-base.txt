@@ -1,0 +1,31 @@
+ /Users/manselmi/*
+
+!/Users/manselmi/.kube
+ /Users/manselmi/.kube/cache
+
+!/Users/manselmi/.gnupg
+ /Users/manselmi/.gnupg/.#*
+ /Users/manselmi/.gnupg/S.*
+
+!/Users/manselmi/Desktop
+
+!/Users/manselmi/Documents
+
+!/Users/manselmi/Downloads
+
+!/Users/manselmi/Gaming
+
+!/Users/manselmi/Movies
+ /Users/manselmi/Movies/.MakeMKV
+ /Users/manselmi/Movies/Infuse
+ /Users/manselmi/Movies/TV
+
+!/Users/manselmi/Music
+ /Users/manselmi/Music/Music/Music Library.musiclibrary/Genius.itdb
+ /Users/manselmi/Music/Music/Previous Libraries.localized
+
+!/Users/manselmi/Pictures
+ /Users/manselmi/Pictures/Photo Booth Library
+ /Users/manselmi/Pictures/Photos Library.photoslibrary
+
+!/Users/manselmi/Watches

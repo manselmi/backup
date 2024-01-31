@@ -77,8 +77,9 @@ status-file = '''{{ .ConfigDir }}/status/{{ .Profile.Name }}.json'''
 [base.backup]
 check-after = true
 exclude-file = [
+  '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}/pre-base.txt''',
   '''{{ .ConfigDir }}/exclude/base.txt''',
-  '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}.txt''',
+  '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}/post-base.txt''',
 ]
 read-concurrency = 8
 run-after = [
@@ -159,14 +160,7 @@ inherit = 'base'
 
 [nidoking.backup]
 source = [
-  'Desktop',
-  'Documents',
-  'Downloads',
-  'Gaming',
-  'Movies',
-  'Music',
-  'Pictures',
-  'Watches',
+  '.',
 ]
 
 
