@@ -1,7 +1,8 @@
  /Users/manselmi/*
 
 !/Users/manselmi/.kube
- /Users/manselmi/.kube/cache
+ /Users/manselmi/.kube/*
+!/Users/manselmi/.kube/config
 
 !/Users/manselmi/.gnupg
  /Users/manselmi/.gnupg/.#*
