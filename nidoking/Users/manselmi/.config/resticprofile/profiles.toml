@@ -99,7 +99,7 @@ cleanup = true
 max-age = 30
 
 [base.diff]
-metadata = true
+metadata = false
 
 [base.env]
 RCLONE_PASSWORD_COMMAND = 'op read --no-newline -- op://6tjftq4rhqxyde5qe4kasnpmtq/3yexkwejyeqny43jnrscuyyfda/password'

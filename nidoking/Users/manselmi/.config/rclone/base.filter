@@ -12,35 +12,35 @@
 - .directory
 - .fuse_hidden*
 - .nfs*
-- .Trash
-- .Trash-*
+- .Trash/
+- .Trash-*/
 
 # macOS
 #   https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
-- .apdisk
-- .AppleDB
-- .AppleDesktop
+- .apdisk/
+- .AppleDB/
+- .AppleDesktop/
 - .AppleDouble
 - .com.apple.timemachine.donotpresent
-- .DocumentRevisions-V100
+- .DocumentRevisions-V100/
 - .DS_Store
-- .fseventsd
+- .fseventsd/
 - .localized
 - .LSOverride
-- .Spotlight-V100
-- .TemporaryItems
-- .Trashes
+- .Spotlight-V100/
+- .TemporaryItems/
+- .Trashes/
 - .VolumeIcon.icns
 - ._*
 - Icon␍
-- Network Trash Folder
-- Temporary Items
+- Network Trash Folder/
+- Temporary Items/
 
 # Syncthing
 #   https://github.com/github/gitignore/blob/main/Global/Syncthing.gitignore
-- .stfolder
+- .stfolder/
 - .stignore
-- .stversions
+- .stversions/
 
 # Vim
 #   https://github.com/github/gitignore/blob/main/Global/Vim.gitignore
@@ -52,9 +52,21 @@
 - Sessionx.vim
 - [._]*.un~
 
+# Visual Studio Code
+#   https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
+- *.vsix
+- .history/
+- .vscode-server/
++ .vscode/*.code-snippets
++ .vscode/extensions.json
++ .vscode/launch.json
++ .vscode/settings.json
++ .vscode/tasks.json
+- .vscode/
+
 # Windows
 #   https://github.com/github/gitignore/blob/main/Global/Windows.gitignore
-- \$RECYCLE.BIN
+- \$RECYCLE.BIN/
 - ehthumbs.db
 - ehthumbs_vista.db
 - Thumbs.db
