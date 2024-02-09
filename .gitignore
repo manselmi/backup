@@ -99,21 +99,21 @@ replay_pid*
 # JBoss
 #   https://github.com/github/gitignore/blob/main/JBoss.gitignore
 *.DEPLOYED
-jboss/server/all/data/**/*
+jboss/server/all/data/
 jboss/server/all/deploy/project.ext
 jboss/server/all/log/*.log
-jboss/server/all/tmp/**/*
-jboss/server/all/work/**/*
-jboss/server/default/data/**/*
+jboss/server/all/tmp/
+jboss/server/all/work/
+jboss/server/default/data/
 jboss/server/default/deploy/project.ext
 jboss/server/default/log/*.log
-jboss/server/default/tmp/**/*
-jboss/server/default/work/**/*
-jboss/server/minimal/data/**/*
+jboss/server/default/tmp/
+jboss/server/default/work/
+jboss/server/minimal/data/
 jboss/server/minimal/deploy/project.ext
 jboss/server/minimal/log/*.log
-jboss/server/minimal/tmp/**/*
-jboss/server/minimal/work/**/*
+jboss/server/minimal/tmp/
+jboss/server/minimal/work/
 
 # JetBrains
 #   https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
@@ -154,29 +154,29 @@ out/
 .directory
 .fuse_hidden*
 .nfs*
-.Trash
-.Trash-*
+.Trash/
+.Trash-*/
 
 # macOS
 #   https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
-.apdisk
-.AppleDB
-.AppleDesktop
+.apdisk/
+.AppleDB/
+.AppleDesktop/
 .AppleDouble
 .com.apple.timemachine.donotpresent
-.DocumentRevisions-V100
+.DocumentRevisions-V100/
 .DS_Store
-.fseventsd
+.fseventsd/
 .localized
 .LSOverride
-.Spotlight-V100
-.TemporaryItems
-.Trashes
+.Spotlight-V100/
+.TemporaryItems/
+.Trashes/
 .VolumeIcon.icns
 ._*
 Icon[]
-Network Trash Folder
-Temporary Items
+Network Trash Folder/
+Temporary Items/
 
 # Maven
 #   https://github.com/github/gitignore/blob/main/Maven.gitignore
@@ -226,13 +226,14 @@ target/
 .Python
 .pytype/
 .ropeproject
+.ruff_cache/
 .scrapy
 .spyderproject
 .spyproject
 .tox/
 .venv
 .webassets-cache
-/site
+/site/
 build/
 celerybeat-schedule
 celerybeat.pid
@@ -307,13 +308,13 @@ vignettes/*.pdf
 
 # Terraform
 #   https://github.com/github/gitignore/blob/main/Terraform.gitignore
-**/.terraform/*
 *.tfstate
 *.tfstate.*
 *.tfvars
 *.tfvars.json
 *_override.tf
 *_override.tf.json
+.terraform/
 .terraformrc
 crash.*.log
 crash.log
@@ -341,6 +342,7 @@ tags
 #   https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
 *.vsix
 .history/
+.vscode-server/
 .vscode/*
 !.vscode/*.code-snippets
 !.vscode/extensions.json
