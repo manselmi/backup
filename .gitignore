@@ -76,6 +76,10 @@
 *.orig
 *.tmp
 
+# Cache
+.*[-_]cache/
+.cache/
+
 # DuckDB
 #   https://github.com/duckdb/duckdb#readme
 *.wal
@@ -118,6 +122,7 @@ jboss/server/minimal/work/
 # JetBrains
 #   https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 *.iws
+.*_helpers/
 .idea/**/aws.xml
 .idea/**/contentModel.xml
 .idea/**/dataSources.ids
@@ -159,11 +164,12 @@ out/
 
 # macOS
 #   https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
-.apdisk/
+.apdisk
 .AppleDB/
 .AppleDesktop/
-.AppleDouble
+.AppleDouble/
 .com.apple.timemachine.donotpresent
+.com.apple.timemachine.supported
 .DocumentRevisions-V100/
 .DS_Store
 .fseventsd/
@@ -214,6 +220,8 @@ target/
 .dmypy.json
 .eggs/
 .env
+.env/
+.envs/
 .hypothesis/
 .installed.cfg
 .ipynb_checkpoints
@@ -232,6 +240,10 @@ target/
 .spyproject
 .tox/
 .venv
+.venv/
+.venvs/
+.virtualenv/
+.virtualenvs/
 .webassets-cache
 /site/
 build/
@@ -249,7 +261,9 @@ docs/_build/
 downloads/
 eggs/
 env.bak/
+ENV/
 env/
+envs/
 htmlcov/
 instance/
 ipython_config.py
@@ -268,6 +282,9 @@ target/
 var/
 venv.bak/
 venv/
+venvs/
+virtualenv/
+virtualenvs/
 wheels/
 __pycache__/
 __pypackages__/

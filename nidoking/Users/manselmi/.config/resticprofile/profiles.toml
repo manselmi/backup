@@ -76,6 +76,7 @@ status-file = '''{{ .ConfigDir }}/status/{{ .Profile.Name }}.json'''
 
 [base.backup]
 check-after = true
+exclude-caches = true
 exclude-file = [
   '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}/pre-base.txt''',
   '''{{ .ConfigDir }}/exclude/base.txt''',

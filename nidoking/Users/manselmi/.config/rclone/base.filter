@@ -1,10 +1,18 @@
 # vim: set ft=diff :
 
 
+# Cache
+- .*[\-_]cache/
+- .cache/
+
 # File segments
 - *.cyberducksegment
 - *.part
 - *.partial
+
+# JetBrains
+#   https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+- .*_helpers/
 
 # Linux
 #   https://github.com/github/gitignore/blob/main/Global/Linux.gitignore
@@ -17,11 +25,12 @@
 
 # macOS
 #   https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
-- .apdisk/
+- .apdisk
 - .AppleDB/
 - .AppleDesktop/
-- .AppleDouble
+- .AppleDouble/
 - .com.apple.timemachine.donotpresent
+- .com.apple.timemachine.supported
 - .DocumentRevisions-V100/
 - .DS_Store
 - .fseventsd/
@@ -35,6 +44,17 @@
 - Icon␍
 - Network Trash Folder/
 - Temporary Items/
+
+# Python
+#   https://github.com/github/gitignore/blob/main/Python.gitignore
+- .venv/
+- .venvs/
+- .virtualenv/
+- .virtualenvs/
+- venv/
+- venvs/
+- virtualenv/
+- virtualenvs/
 
 # Syncthing
 #   https://github.com/github/gitignore/blob/main/Global/Syncthing.gitignore
@@ -54,15 +74,7 @@
 
 # Visual Studio Code
 #   https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-- *.vsix
-- .history/
 - .vscode-server/
-+ .vscode/*.code-snippets
-+ .vscode/extensions.json
-+ .vscode/launch.json
-+ .vscode/settings.json
-+ .vscode/tasks.json
-- .vscode/
 
 # Windows
 #   https://github.com/github/gitignore/blob/main/Global/Windows.gitignore
