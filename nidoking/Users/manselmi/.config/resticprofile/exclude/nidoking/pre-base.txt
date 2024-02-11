@@ -1,12 +1,12 @@
  /Users/manselmi/*
 
-!/Users/manselmi/.kube/
- /Users/manselmi/.kube/*
-!/Users/manselmi/.kube/config
-
 !/Users/manselmi/.gnupg/
  /Users/manselmi/.gnupg/.#*
  /Users/manselmi/.gnupg/S.*
+
+!/Users/manselmi/.kube/
+ /Users/manselmi/.kube/*
+!/Users/manselmi/.kube/config
 
 !/Users/manselmi/Desktop/
 
