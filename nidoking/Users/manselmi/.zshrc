@@ -64,12 +64,7 @@ _rclone-mount() {
   REMOTE="${1}"
 
   # https://rclone.org/commands/rclone_mount/#fuse-t-limitations-caveats-and-notes
-  # https://forum.rclone.org/t/some-unicode-forms-break-mount-on-macos-with-fuse-t/36403
-  # https://github.com/macos-fuse-t/fuse-t/issues/16
-  exec-rclone mount "${REMOTE}:" "/opt/rclone/mnt/${REMOTE}/" \
-    --option=modules=iconv,from_code=UTF-8,to_code=UTF-8 \
-    --read-only \
-    --volname="${REMOTE}"
+  exec-rclone mount "${REMOTE}:" "/opt/rclone/mnt/${REMOTE}/" --read-only --volname="${REMOTE}"
 }
 
 # Mount rclone remote "gdrive" to /opt/rclone/mnt/gdrive/
