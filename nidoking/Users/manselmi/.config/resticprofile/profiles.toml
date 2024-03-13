@@ -75,7 +75,7 @@ path = false
 status-file = '''{{ .ConfigDir }}/status/{{ .Profile.Name }}.json'''
 
 [base.backup]
-check-after = true
+check-after = false
 exclude-caches = true
 exclude-file = [
   '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}/pre-base.txt''',
@@ -107,7 +107,7 @@ RCLONE_PASSWORD_COMMAND = 'op read --no-newline -- op://6tjftq4rhqxyde5qe4kasnpm
 TZ = 'UTC'
 
 [base.forget]
-prune = true
+prune = false
 tag = true
 
 [base.prune]
@@ -120,8 +120,7 @@ tag = true
 
 [base.retention]
 after-backup = true
-before-backup = false
-prune = true
+prune = false
 tag = true
 
 

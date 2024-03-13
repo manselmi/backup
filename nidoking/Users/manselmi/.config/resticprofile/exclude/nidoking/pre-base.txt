@@ -1,12 +1,74 @@
  /Users/manselmi/*
 
+!/Users/manselmi/.gitattributes
+!/Users/manselmi/.gitconfig
+!/Users/manselmi/.gitexcludes
+!/Users/manselmi/.mambarc
+!/Users/manselmi/.pydistutils.cfg
+!/Users/manselmi/.pypirc
+!/Users/manselmi/.Rprofile
+!/Users/manselmi/.tmux.conf
+!/Users/manselmi/.vimrc
+!/Users/manselmi/.zaliases
+!/Users/manselmi/.zfunc
+!/Users/manselmi/.zprofile
+!/Users/manselmi/.zshrc
+!/Users/manselmi/.zvar
+
+!/Users/manselmi/.aria2/
+
+!/Users/manselmi/.aws/
+
+!/Users/manselmi/.buildout/
+
+!/Users/manselmi/.conda/
+
+!/Users/manselmi/.config/
+
+!/Users/manselmi/.devpi/
+ /Users/manselmi/.devpi/server/
+
+!/Users/manselmi/.gittemplates/
+
 !/Users/manselmi/.gnupg/
  /Users/manselmi/.gnupg/.#*
  /Users/manselmi/.gnupg/S.*
 
+!/Users/manselmi/.ipython/
+
 !/Users/manselmi/.kube/
  /Users/manselmi/.kube/*
 !/Users/manselmi/.kube/config
+
+!/Users/manselmi/.mc/
+
+!/Users/manselmi/.minio/
+ /Users/manselmi/.minio/data/
+
+!/Users/manselmi/.mitmproxy/
+
+!/Users/manselmi/.nextflow/
+
+!/Users/manselmi/.parallel/
+ /Users/manselmi/.parallel/tmp/
+
+!/Users/manselmi/.pki/
+
+!/Users/manselmi/.ssh/
+ /Users/manselmi/.ssh/control_sockets/
+ /Users/manselmi/.ssh/known_hosts.old
+
+!/Users/manselmi/.step/
+ /Users/manselmi/.step/plugins
+
+!/Users/manselmi/.subversion/
+
+!/Users/manselmi/.vim/
+ /Users/manselmi/.vim/bundle/
+
+!/Users/manselmi/.zcompletion/
+
+!/Users/manselmi/.zkbd/
 
 !/Users/manselmi/Desktop/
 
@@ -22,11 +84,13 @@
  /Users/manselmi/Movies/TV/
 
 !/Users/manselmi/Music/
- /Users/manselmi/Music/Music/Music Library.musiclibrary/Genius.itdb
+ /Users/manselmi/Music/Music/Music Library.musiclibrary/
  /Users/manselmi/Music/Music/Previous Libraries.localized/
 
 !/Users/manselmi/Pictures/
  /Users/manselmi/Pictures/Photo Booth Library/
  /Users/manselmi/Pictures/Photos Library.photoslibrary/
+
+!/Users/manselmi/repos/
 
 !/Users/manselmi/Watches/
