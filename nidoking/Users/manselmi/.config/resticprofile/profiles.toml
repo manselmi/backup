@@ -4,7 +4,7 @@
 
 {{ define "ping_healthcheck_failure" }}
 '''
-op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
+op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}.curlrc' \
   | sed -e '\|^url[[:blank:]:=]|s|$|/fail|' \
   | {
       DATA="$(mktemp)"
@@ -17,7 +17,7 @@ op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
 
 {{ define "ping_healthcheck_start" }}
 '''
-op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
+op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}.curlrc' \
   | sed -e '\|^url[[:blank:]:=]|s|$|/start|' \
   | curl -qK -
 '''
@@ -25,7 +25,7 @@ op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
 
 {{ define "ping_healthcheck_success" }}
 '''
-op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}' \
+op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}.curlrc' \
   | {
       DATA="$(mktemp)"
       env -- LC_ALL=POSIX tail -c 100000 -- '{{ .ConfigDir }}/log/{{ .Profile.Name }}/backup.log' >> "${DATA}"
@@ -78,9 +78,9 @@ status-file = '''{{ .ConfigDir }}/status/{{ .Profile.Name }}.json'''
 check-after = false
 exclude-caches = true
 exclude-file = [
-  '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}/pre-base.txt''',
-  '''{{ .ConfigDir }}/exclude/base.txt''',
-  '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}/post-base.txt''',
+  '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}/pre-base.exclude''',
+  '''{{ .ConfigDir }}/exclude/base.exclude''',
+  '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}/post-base.exclude''',
 ]
 read-concurrency = 8
 run-after = [
@@ -152,6 +152,12 @@ inherit = 'base'
 {{ template "repository_manselmi" . }}
 
 
+[gdrive]
+host = 'Google Drive'
+inherit = 'rclone-mount-src'
+{{ template "repository_manselmi" . }}
+
+
 [nidoking]
 base-dir = '''{{ .Env.HOME }}'''
 host = 'Nidoking'
@@ -162,12 +168,6 @@ inherit = 'base'
 source = [
   '.',
 ]
-
-
-[gdrive]
-host = 'Google Drive'
-inherit = 'rclone-mount-src'
-{{ template "repository_manselmi" . }}
 
 
 [onedrive]
