@@ -39,7 +39,7 @@ OP_TOKEN_KEYCHAIN_RECORD_ACCOUNT="${OP_TOKEN_KEYCHAIN_RECORD_ACCOUNT-"nidoking"}
 #   ⇒ user interaction is not allowed
 #   ⇒ STATUS = -25308 & ((1 << 8) - 1) = 36
 #
-# https://github.com/apple-open-source/macos/blob/14.2/Security/base/SecBase.h#L355
+# https://github.com/apple-open-source/macos/blob/14.3/Security/base/SecBase.h#L355
 #
 #   errSecInteractionNotAllowed = -25308,  /* User interaction is not allowed. */
 #

@@ -323,6 +323,10 @@ vignettes/*.pdf
 .stignore
 .stversions/
 
+# Task
+#   https://taskfile.dev
+.task/
+
 # Terraform
 #   https://github.com/github/gitignore/blob/main/Terraform.gitignore
 *.tfstate

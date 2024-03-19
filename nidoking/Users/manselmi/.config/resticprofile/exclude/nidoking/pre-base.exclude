@@ -24,6 +24,8 @@
 !/Users/manselmi/.conda/
 
 !/Users/manselmi/.config/
+ /Users/manselmi/.config/resticprofile/log/**/*.log
+ /Users/manselmi/.config/resticprofile/status/**/*.json
 
 !/Users/manselmi/.devpi/
  /Users/manselmi/.devpi/server/

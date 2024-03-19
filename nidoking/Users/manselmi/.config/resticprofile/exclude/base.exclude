@@ -59,6 +59,10 @@
  .stignore
  .stversions/
 
+# Task
+#   https://taskfile.dev
+ .task/
+
 # Vim
 #   https://github.com/github/gitignore/blob/main/Global/Vim.gitignore
  *.swp
