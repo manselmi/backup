@@ -51,7 +51,7 @@ sequenceDiagram
   1P ->> RC: rclone config password
   RC ->> RE: HTTP connection established
 
-  loop Data transfer: backup, prune old snapshots, repack repo
+  loop Data transfer: backup, forget old snapshots
     RE ->> RC: HTTP
     RC ->> PC: HTTPS
     PC ->> RC: HTTPS
