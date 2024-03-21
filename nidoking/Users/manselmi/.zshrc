@@ -8,7 +8,6 @@ path=(
   '/usr/local/bin'
   "${path[@]}"
 )
-export PATH
 
 
 # Run resticprofile with our config file.
