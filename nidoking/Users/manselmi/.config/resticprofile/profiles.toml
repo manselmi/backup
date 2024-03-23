@@ -40,6 +40,7 @@ op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}.curlrc' \
 resticprofile version
 restic version
 rclone version
+printf '%s %s\n' op "$(op --version)"
 pkgutil --pkgs='org\.fuse-t\..*' || printf '%s\n' 'fuse-t not found'
 '''
 {{ end }}
