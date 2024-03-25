@@ -16,7 +16,7 @@
 	<array>
 		<string>/bin/zsh</string>
 		<string>-fc</string>
-		<string>/usr/bin/truncate -s 0 -- /Users/manselmi/.config/resticprofile/log/nidoking/backup.log ; exec -- /usr/local/bin/fdautil exec /Users/manselmi/.prefix/bin/exec-resticprofile --log /Users/manselmi/.config/resticprofile/log/nidoking/backup.log -- nidoking.backup</string>
+		<string>/usr/bin/truncate -s 0 -- /Users/manselmi/.config/resticprofile/log/nidoking/backup.log ; exec -- /usr/local/bin/fdautil exec /Users/manselmi/.prefix/bin/exec-resticprofile --lock-wait 15m --log /Users/manselmi/.config/resticprofile/log/nidoking/backup.log --no-ansi --no-prio -- nidoking.backup</string>
 	</array>
 	<key>StartCalendarInterval</key>
 	<dict>

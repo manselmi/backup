@@ -16,7 +16,7 @@
 	<array>
 		<string>/bin/zsh</string>
 		<string>-fc</string>
-		<string>/usr/bin/truncate -s 0 -- /Users/manselmi/.config/resticprofile/log/gdrive/backup.log ; exec -- /usr/local/bin/fdautil exec /Users/manselmi/.prefix/bin/exec-resticprofile --log /Users/manselmi/.config/resticprofile/log/gdrive/backup.log -- gdrive.backup</string>
+		<string>/usr/bin/truncate -s 0 -- /Users/manselmi/.config/resticprofile/log/gdrive/backup.log ; exec -- /usr/local/bin/fdautil exec /Users/manselmi/.prefix/bin/exec-resticprofile --lock-wait 5m --log /Users/manselmi/.config/resticprofile/log/gdrive/backup.log --no-ansi --no-prio -- gdrive.backup</string>
 	</array>
 </dict>
 </plist>

@@ -5,11 +5,11 @@
 	<key>agents</key>
 	<dict>
 		<key>com.manselmi.resticprofile.gdrive.backup</key>
-		<string>/Users/manselmi/.prefix/bin/exec-resticprofile --log /Users/manselmi/.config/resticprofile/log/gdrive/backup.log -- gdrive.backup</string>
+		<string>/Users/manselmi/.prefix/bin/exec-resticprofile --lock-wait 5m --log /Users/manselmi/.config/resticprofile/log/gdrive/backup.log --no-ansi --no-prio -- gdrive.backup</string>
 		<key>com.manselmi.resticprofile.nidoking.backup</key>
-		<string>/Users/manselmi/.prefix/bin/exec-resticprofile --log /Users/manselmi/.config/resticprofile/log/nidoking/backup.log -- nidoking.backup</string>
+		<string>/Users/manselmi/.prefix/bin/exec-resticprofile --lock-wait 15m --log /Users/manselmi/.config/resticprofile/log/nidoking/backup.log --no-ansi --no-prio -- nidoking.backup</string>
 		<key>com.manselmi.resticprofile.onedrive.backup</key>
-		<string>/Users/manselmi/.prefix/bin/exec-resticprofile --log /Users/manselmi/.config/resticprofile/log/onedrive/backup.log -- onedrive.backup</string>
+		<string>/Users/manselmi/.prefix/bin/exec-resticprofile --lock-wait 5m --log /Users/manselmi/.config/resticprofile/log/onedrive/backup.log --no-ansi --no-prio -- onedrive.backup</string>
 	</dict>
 </dict>
 </plist>

@@ -63,7 +63,6 @@ restic-stale-lock-age = '1h'
 
 
 [base]
-force-inactive-lock = true
 group-by = 'host,tags'
 human-readable = true
 keep-within-daily = '7d'
@@ -161,6 +160,7 @@ inherit = 'rclone-mount-src'
 
 [nidoking]
 base-dir = '''{{ .Env.HOME }}'''
+force-inactive-lock = true
 host = 'Nidoking'
 inherit = 'base'
 {{ template "repository_manselmi" . }}
