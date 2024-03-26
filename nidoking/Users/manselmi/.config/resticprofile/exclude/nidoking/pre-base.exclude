@@ -1,96 +1,106 @@
- /Users/manselmi/*
-
-!/Users/manselmi/.gitattributes
-!/Users/manselmi/.gitconfig
-!/Users/manselmi/.gitexcludes
-!/Users/manselmi/.mambarc
-!/Users/manselmi/.pydistutils.cfg
-!/Users/manselmi/.pypirc
-!/Users/manselmi/.Rprofile
-!/Users/manselmi/.tmux.conf
-!/Users/manselmi/.vimrc
-!/Users/manselmi/.zaliases
-!/Users/manselmi/.zfunc
-!/Users/manselmi/.zprofile
-!/Users/manselmi/.zshrc
-!/Users/manselmi/.zvar
-
-!/Users/manselmi/.aria2/
-
-!/Users/manselmi/.aws/
-
-!/Users/manselmi/.buildout/
-
-!/Users/manselmi/.conda/
-
-!/Users/manselmi/.config/
+ /Users/manselmi/.android/
+ /Users/manselmi/.ansible/
+ /Users/manselmi/.aspnet/
+ /Users/manselmi/.bash_history
+ /Users/manselmi/.cache/
+ /Users/manselmi/.cargo/
+ /Users/manselmi/.cisco/
  /Users/manselmi/.config/resticprofile/log/**/*.log
  /Users/manselmi/.config/resticprofile/status/**/*.json
-
-!/Users/manselmi/.devpi/
+ /Users/manselmi/.cookiecutters/
+ /Users/manselmi/.cookiecutter_replay/
+ /Users/manselmi/.cups/
  /Users/manselmi/.devpi/server/
-
-!/Users/manselmi/.gittemplates/
-
-!/Users/manselmi/.gnupg/
+ /Users/manselmi/.docker/
+ /Users/manselmi/.duckdb/extensions/
+ /Users/manselmi/.duckdb_history
+ /Users/manselmi/.emulator_console_auth_token
+ /Users/manselmi/.frida/
  /Users/manselmi/.gnupg/.#*
  /Users/manselmi/.gnupg/S.*
-
-!/Users/manselmi/.ipython/
-
-!/Users/manselmi/.kube/
- /Users/manselmi/.kube/*
-!/Users/manselmi/.kube/config
-
-!/Users/manselmi/.mc/
-
-!/Users/manselmi/.minio/
+ /Users/manselmi/.gnupg_pre_2.1/
+ /Users/manselmi/.gradle/
+ /Users/manselmi/.ipython/**/history.sqlite
+ /Users/manselmi/.ivy2/
+ /Users/manselmi/.jupyter/lab/workspaces/
+ /Users/manselmi/.kube/cache/
+ /Users/manselmi/.kube/http-cache/
+ /Users/manselmi/.kuberlr/
+ /Users/manselmi/.lesshst
+ /Users/manselmi/.local/.IdentityService/
+ /Users/manselmi/.local/bin/
+ /Users/manselmi/.local/share/containers/
+ /Users/manselmi/.local/share/podman-desktop/
+ /Users/manselmi/.m2/
+ /Users/manselmi/.mc/session/
+ /Users/manselmi/.megaCmd/*.db
+ /Users/manselmi/.megaCmd/*.db-shm
+ /Users/manselmi/.megaCmd/*.db-wal
+ /Users/manselmi/.megaCmd/*.log
+ /Users/manselmi/.megaCmd/apiFolder_*/
+ /Users/manselmi/.megaCmd/ebackup/
+ /Users/manselmi/.megaCmd/lockMCMD
  /Users/manselmi/.minio/data/
-
-!/Users/manselmi/.mitmproxy/
-
-!/Users/manselmi/.nextflow/
-
-!/Users/manselmi/.parallel/
+ /Users/manselmi/.net/
+ /Users/manselmi/.npm/
+ /Users/manselmi/.openjfx/
  /Users/manselmi/.parallel/tmp/
-
-!/Users/manselmi/.pki/
-
-!/Users/manselmi/.ssh/
+ /Users/manselmi/.pcloud/
+ /Users/manselmi/.pdfbox.cache
+ /Users/manselmi/.ploomber/
+ /Users/manselmi/.podman-desktop/
+ /Users/manselmi/.prefix/*
+!/Users/manselmi/.prefix/sw/
+ /Users/manselmi/.prefix/sw/*
+!/Users/manselmi/.prefix/sw/texlive/
+ /Users/manselmi/.prefix/sw/texlive/*
+!/Users/manselmi/.prefix/sw/texlive/texmf-local/
+ /Users/manselmi/.python_history
+ /Users/manselmi/.rd/
+ /Users/manselmi/.rnd
+ /Users/manselmi/.sage/
+ /Users/manselmi/.sqlite_history
  /Users/manselmi/.ssh/control_sockets/
  /Users/manselmi/.ssh/known_hosts.old
-
-!/Users/manselmi/.step/
- /Users/manselmi/.step/plugins
-
-!/Users/manselmi/.subversion/
-
-!/Users/manselmi/.vim/
+ /Users/manselmi/.step/plugins/
+ /Users/manselmi/.swiftpm/
+ /Users/manselmi/.Trash/
  /Users/manselmi/.vim/bundle/
-
-!/Users/manselmi/.zcompletion/
-
-!/Users/manselmi/.zkbd/
-
-!/Users/manselmi/Desktop/
-
-!/Users/manselmi/Documents/
-
-!/Users/manselmi/Downloads/
-
-!/Users/manselmi/Gaming/
-
-!/Users/manselmi/Movies/
+ /Users/manselmi/.vim/swap/
+ /Users/manselmi/.viminfo
+ /Users/manselmi/.vscode/
+ /Users/manselmi/.zcompcache/
+ /Users/manselmi/.zcompdump
+ /Users/manselmi/.zhistory
+ /Users/manselmi/.zsh_history
+ /Users/manselmi/.zsh_sessions/
+ /Users/manselmi/AndroidStudioProjects/
+ /Users/manselmi/Applications/
+ /Users/manselmi/Applications (Parallels)/
+ /Users/manselmi/bin/
+ /Users/manselmi/go/
+ /Users/manselmi/iCloud Drive
+ /Users/manselmi/Library/*
+!/Users/manselmi/Library/Application Support/
+ /Users/manselmi/Library/Application Support/*
+!/Users/manselmi/Library/Application Support/Code/
+ /Users/manselmi/Library/Application Support/Code/*
+!/Users/manselmi/Library/Application Support/Code/User/
+ /Users/manselmi/Library/Application Support/Code/User/*
+!/Users/manselmi/Library/Application Support/Code/User/settings.json
+!/Users/manselmi/Library/Application Support/Code/User/snippets/
+!/Users/manselmi/Library/Jupyter/
+ /Users/manselmi/Library/Jupyter/runtime/
+ /Users/manselmi/mnt/
  /Users/manselmi/Movies/.MakeMKV/
  /Users/manselmi/Movies/Infuse/
  /Users/manselmi/Movies/TV/
-
-!/Users/manselmi/Music/
  /Users/manselmi/Music/Music/Music Library.musiclibrary/
  /Users/manselmi/Music/Music/Previous Libraries.localized/
-
-!/Users/manselmi/Pictures/
+ /Users/manselmi/Parallels/
  /Users/manselmi/Pictures/Photo Booth Library/
  /Users/manselmi/Pictures/Photos Library.photoslibrary/
-
-!/Users/manselmi/repos/
+ /Users/manselmi/Public/
+ /Users/manselmi/Virtual Machines.localized/
+ /Users/manselmi/VirtualBox VMs/
+ /Users/manselmi/virtualenv/
