@@ -17,6 +17,7 @@
  /Users/manselmi/.emulator_console_auth_token
  /Users/manselmi/.frida/
  /Users/manselmi/.gnupg/.#*
+ /Users/manselmi/.gnupg/reader_*.status
  /Users/manselmi/.gnupg/S.*
  /Users/manselmi/.gnupg_pre_2.1/
  /Users/manselmi/.gradle/
@@ -92,14 +93,12 @@
  /Users/manselmi/Library/Application Support/rancher-desktop/lima/*
 !/Users/manselmi/Library/Application Support/rancher-desktop/lima/_config/
 !/Users/manselmi/Library/Application Support/rancher-desktop/lima/_networks/
- /Users/manselmi/Library/Application Support/rancher-desktop/**/*.log
 !/Users/manselmi/Library/Application Support/Sublime Text/
  /Users/manselmi/Library/Application Support/Sublime Text/Installed Packages/
  /Users/manselmi/Library/Application Support/Sublime Text/Lib/
  /Users/manselmi/Library/Application Support/Sublime Text/Log/
 !/Users/manselmi/Library/Application Support/Syncthing/
  /Users/manselmi/Library/Application Support/Syncthing/*.ldb
- /Users/manselmi/Library/Application Support/Syncthing/*.log
  /Users/manselmi/Library/Application Support/Syncthing/index-*/
 !/Users/manselmi/Library/Audio/
 !/Users/manselmi/Library/Fonts/
@@ -117,6 +116,7 @@
 !/Users/manselmi/Library/Spelling/
 !/Users/manselmi/Library/Workflows/
 !/Users/manselmi/Library/yWorks/
+ /Users/manselmi/Library/**/*.log
  /Users/manselmi/mnt/
  /Users/manselmi/Movies/.MakeMKV/
  /Users/manselmi/Movies/Infuse/
