@@ -56,12 +56,6 @@
 - virtualenv/
 - virtualenvs/
 
-# Syncthing
-#   https://github.com/github/gitignore/blob/main/Global/Syncthing.gitignore
-- .stfolder/
-- .stignore
-- .stversions/
-
 # Task
 #   https://taskfile.dev
 - .task/
