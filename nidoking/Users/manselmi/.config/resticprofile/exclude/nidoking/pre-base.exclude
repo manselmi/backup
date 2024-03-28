@@ -21,6 +21,7 @@
  /Users/manselmi/.gnupg/S.*
  /Users/manselmi/.gnupg_pre_2.1/
  /Users/manselmi/.gradle/
+ /Users/manselmi/.groovy/
  /Users/manselmi/.ipython/**/history.sqlite
  /Users/manselmi/.ivy2/
  /Users/manselmi/.jupyter/lab/workspaces/
@@ -42,6 +43,12 @@
  /Users/manselmi/.megaCmd/lockMCMD
  /Users/manselmi/.minio/data/
  /Users/manselmi/.net/
+ /Users/manselmi/.nextflow/cache/
+ /Users/manselmi/.nextflow/capsule/
+ /Users/manselmi/.nextflow/framework/
+ /Users/manselmi/.nextflow/plr/
+ /Users/manselmi/.nextflow/plugins/
+ /Users/manselmi/.nextflow/tmp/
  /Users/manselmi/.npm/
  /Users/manselmi/.openjfx/
  /Users/manselmi/.parallel/tmp/
