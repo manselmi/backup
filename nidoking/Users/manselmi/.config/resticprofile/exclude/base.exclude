@@ -1,0 +1,94 @@
+# Cache
+ .*[\-_]cache/
+ .cache/
+
+# File segments
+ *.cyberducksegment
+ *.mega
+ *.part
+ *.partial
+
+# JetBrains
+#   https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+ .*_helpers/
+
+# Linux
+#   https://github.com/github/gitignore/blob/main/Global/Linux.gitignore
+ *~
+ .directory
+ .fuse_hidden*
+ .nfs*
+ .Trash/
+ .Trash-*/
+
+# macOS
+#   https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
+ .apdisk
+ .AppleDB/
+ .AppleDesktop/
+ .AppleDouble/
+ .com.apple.timemachine.donotpresent
+ .com.apple.timemachine.supported
+ .DocumentRevisions-V100/
+ .DS_Store
+ .fseventsd/
+ .localized
+ .LSOverride
+ .Spotlight-V100/
+ .TemporaryItems/
+ .Trashes/
+ .VolumeIcon.icns
+ ._*
+ Icon[]
+ Network Trash Folder/
+ Temporary Items/
+
+# Plex Media Server
+ .streams/
+
+# Python
+#   https://github.com/github/gitignore/blob/main/Python.gitignore
+ .ipynb_checkpoints/
+ .venv/
+ .venvs/
+ .virtualenv/
+ .virtualenvs/
+ venv/
+ venvs/
+ virtualenv/
+ virtualenvs/
+
+# QNAP NAS
+ @Recently-Snapshot/
+
+# Syncthing
+#   https://syncthing.net
+ .syncthing.*
+ ~syncthing~*
+
+# Task
+#   https://taskfile.dev
+ .task/
+
+# Vim
+#   https://github.com/github/gitignore/blob/main/Global/Vim.gitignore
+ *.swp
+ *~
+ .netrwhist
+ .viminfo
+ Session.vim
+ Sessionx.vim
+ [._]*.un~
+
+# Visual Studio Code
+#   https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
+ .vscode-server/
+
+# Windows
+#   https://github.com/github/gitignore/blob/main/Global/Windows.gitignore
+ $$RECYCLE.BIN/
+ ehthumbs.db
+ ehthumbs_vista.db
+ Thumbs.db
+ Thumbs.db:encryptable
+ [Dd]esktop.ini

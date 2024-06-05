@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vim: set ft=xml : -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Disabled</key>
+	<false/>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/Users/manselmi/.prefix/bin:/Users/manselmi/.prefix/sw/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<key>RESTICPROFILE_LOG</key>
+    <string>/Users/manselmi/.config/resticprofile/log/onedrive/backup.log</string>
+		<key>RESTICPROFILE_NO_ANSI</key>
+		<string></string>
+		<key>RESTICPROFILE_NO_PRIO</key>
+		<string></string>
+		<key>TZ</key>
+		<string>UTC</string>
+	</dict>
+	<key>Label</key>
+	<string>com.manselmi.resticprofile.onedrive.backup</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/zsh</string>
+		<string>-fc</string>
+		<string>truncate -s 0 -- "${RESTICPROFILE_LOG}" ; exec -- fdautil exec "$(whence -p -- exec-resticprofile)" -- onedrive.backup</string>
+	</array>
+</dict>
+</plist>

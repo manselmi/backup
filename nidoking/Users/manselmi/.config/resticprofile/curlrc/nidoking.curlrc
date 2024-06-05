@@ -1,0 +1,6 @@
+fail
+max-time 60
+output /dev/null
+retry 3
+silent
+url https://hc-ping.com/{{ op://6tjftq4rhqxyde5qe4kasnpmtq/mz4evv2ljx44i7j6otz4z5zz4a/password }}

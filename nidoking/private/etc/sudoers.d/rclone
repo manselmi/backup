@@ -1,0 +1,15 @@
+# vim: set ft=sudoers :
+
+
+User_Alias RCLONE_USERS = manselmi, root
+
+Cmnd_Alias RCLONE_CMDS = /Users/manselmi/.prefix/bin/rclone *
+Runas_Alias RCLONE_CMDS_RUNAS_USERS = #501  # manselmi
+Runas_Alias RCLONE_CMDS_RUNAS_GROUPS = #20  # staff
+Defaults! RCLONE_CMDS \
+  always_set_home, \
+  !env_reset, \
+  !noexec, \
+  !secure_path
+
+RCLONE_USERS ALL = (RCLONE_CMDS_RUNAS_USERS : RCLONE_CMDS_RUNAS_GROUPS) NOPASSWD: RCLONE_CMDS

@@ -1,0 +1,203 @@
+#:schema https://creativeprojects.github.io/resticprofile/jsonschema/config-1.json
+# vim: set ft=toml :
+
+
+{{ define "ping_healthcheck_failure" }}
+'''
+env -u TMPDIR -- op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}.curlrc' \
+  | sed -e '\|^url[[:blank:]:=]|s|$|/fail|' \
+  | {
+      DATA="$(env -u TMPDIR -- mktemp)"
+      env -- LC_ALL=POSIX tail -c 100000 -- '{{ .ConfigDir }}/log/{{ .Profile.Name }}/backup.log' >> "${DATA}"
+      curl -qK - -H 'content-type: text/plain' --data-binary "@${DATA}"
+      rm -f -- "${DATA}"
+    }
+'''
+{{ end }}
+
+{{ define "ping_healthcheck_start" }}
+'''
+env -u TMPDIR -- op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}.curlrc' \
+  | sed -e '\|^url[[:blank:]:=]|s|$|/start|' \
+  | curl -qK -
+'''
+{{ end }}
+
+{{ define "ping_healthcheck_success" }}
+'''
+env -u TMPDIR -- op inject -i '{{ .ConfigDir }}/curlrc/{{ .Profile.Name }}.curlrc' \
+  | {
+      DATA="$(env -u TMPDIR -- mktemp)"
+      env -- LC_ALL=POSIX tail -c 100000 -- '{{ .ConfigDir }}/log/{{ .Profile.Name }}/backup.log' >> "${DATA}"
+      curl -qK - -H 'content-type: text/plain' --data-binary "@${DATA}"
+      rm -f -- "${DATA}"
+    }
+'''
+{{ end }}
+
+{{ define "print_versions" }}
+'''
+printf '%s %s\n' op "$(env -u TMPDIR -- op --version)"
+rclone version
+restic version
+resticprofile version
+pkgutil --pkgs='org\.fuse-t\..*' || printf '%s\n' 'fuse-t not found'
+'''
+{{ end }}
+
+{{ define "unquarantine_executables" }}
+'''
+for CMD in op rclone restic resticprofile; do
+  EXE="$(whence -p -- "${CMD}")"
+  xattr -d com.apple.quarantine -- "${EXE:A}" 2> >(grep -v -- '^xattr:.*No such xattr:' >&2) || true
+done
+'''
+{{ end }}
+
+
+{{ define "repository_manselmi" }}
+lock = '''{{ .TempDir }}/resticprofile-manselmi.lock'''
+password-command = 'env -u TMPDIR -- op read --no-newline -- op://6tjftq4rhqxyde5qe4kasnpmtq/gqrbqymbvwn7ppbugzbu47fh54/password'
+repository = 'rclone:restic-manselmi:'
+{{ end }}
+
+
+{{ define "hostname" }}'Nidoking'{{ end }}
+
+
+version = '1'
+
+
+[global]
+prevent-sleep = true
+restic-lock-retry-after = '1m'
+restic-stale-lock-age = '1h'
+shell = 'zsh'
+
+
+[base]
+group-by = 'host,tags'
+human-readable = true
+keep-within-daily = '7d'
+keep-within-weekly = '1m'
+keep-within-monthly = '1y'
+keep-within-yearly = '100y'
+long = true
+option = [
+  'rclone.program=exec-rclone',
+]
+pack-size = 128  # MiB
+path = false
+status-file = '''{{ .ConfigDir }}/status/{{ .Profile.Name }}.json'''
+
+[base.backup]
+check-after = false
+exclude-caches = true
+exclude-file = [
+  '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}/pre-base.exclude''',
+  '''{{ .ConfigDir }}/exclude/base.exclude''',
+  '''{{ .ConfigDir }}/exclude/{{ .Profile.Name }}/post-base.exclude''',
+]
+read-concurrency = 8
+run-after = [
+  {{ template "ping_healthcheck_success" . }},
+]
+run-after-fail = [
+  {{ template "ping_healthcheck_failure" . }},
+]
+run-before = [
+  {{ template "unquarantine_executables" . }},
+  {{ template "ping_healthcheck_start" . }},
+  {{ template "print_versions" . }},
+]
+verbose = true
+
+[base.cache]
+cleanup = true
+max-age = 30
+
+[base.diff]
+metadata = false
+
+[base.env]
+RCLONE_PASSWORD_COMMAND = 'env -u TMPDIR -- op read --no-newline -- op://6tjftq4rhqxyde5qe4kasnpmtq/3yexkwejyeqny43jnrscuyyfda/password'
+TZ = 'UTC'
+
+[base.forget]
+prune = false
+tag = true
+
+# Uncomment before initializing a repository, then comment out afterwards. Only `restic key add`
+# supports `--host` and `--user` (and not `restic key {list,passwd,remove}`).
+#
+# [base.key]
+# host = {{ template "hostname" . }}
+# user = 'manselmi'
+
+[base.prune]
+max-unused = '0'
+verbose = true
+
+[base.repair-snapshots]
+forget = true
+tag = true
+
+[base.retention]
+after-backup = true
+prune = false
+tag = true
+
+
+[rclone-mount-src]
+base-dir = '''/opt/manselmi/rclone/mnt/{{ .Profile.Name }}'''
+inherit = 'base'
+
+[rclone-mount-src.backup]
+ignore-inode = true
+read-concurrency = 2
+run-before = [
+  {{ template "unquarantine_executables" . }},
+  {{ template "ping_healthcheck_start" . }},
+  {{ template "print_versions" . }},
+  '''
+  mount \
+    | grep -Fq -- 'fuse-t:/{{ .Profile.Name }} on /opt/manselmi/rclone/mnt/{{ .Profile.Name }}'
+  ''',
+]
+source = [
+  '.',
+]
+tag = [
+  '''mount-dir=/opt/manselmi/rclone/mnt/{{ .Profile.Name }}''',
+]
+
+
+[manselmi]
+inherit = 'base'
+{{ template "repository_manselmi" . }}
+
+
+[gdrive]
+host = 'Google Drive'
+inherit = 'rclone-mount-src'
+{{ template "repository_manselmi" . }}
+
+
+[nidoking]
+host = {{ template "hostname" . }}
+inherit = 'base'
+{{ template "repository_manselmi" . }}
+
+[nidoking.backup]
+source = [
+  '/private/etc',
+  '/Library',
+  '/opt/manselmi',
+  '/Users/manselmi',
+]
+
+
+[onedrive]
+host = 'OneDrive'
+inherit = 'rclone-mount-src'
+{{ template "repository_manselmi" . }}

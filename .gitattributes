@@ -1,0 +1,19 @@
+# vim: set ft=gitattributes :
+
+
+# To learn more about gitattribute files, please see:
+#
+#   https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes
+#   https://git-scm.com/docs/gitattributes
+
+# * Normalize line endings on checkin (text).
+[attr]txt !bin !diff !eol !merge text
+
+# * Don't display diffs (-diff).
+# * Don't convert line endings of normalized files on checkout (-eol).
+# * Take version from current branch as tentative merge result (-merge).
+# * Don't normalize line endings on checkin (-text).
+[attr]bin !txt -diff -eol -merge -text
+
+*      txt
+*.png  bin
